@@ -1019,6 +1019,7 @@ footer {
 .fade {
   transform: translate(30px, 10px);
   opacity: 0;
+  overflow: hidden;
 }
 
 .fade_in {
