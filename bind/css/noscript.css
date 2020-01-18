@@ -1,0 +1,19 @@
+/* Javascriptオフ時のCSS */
+
+/* 通常はスクロールアニメーションする要素を表示 */
+
+nav .pc li a::after {
+  opacity: 0;
+}
+
+.bd .draw::before,
+.bd .draw::after {
+  width: 100%;
+  height: 100%;
+  border-color: #333;
+}
+
+.fade {
+  transform: translate(0, 0);
+  opacity: 1;
+}
