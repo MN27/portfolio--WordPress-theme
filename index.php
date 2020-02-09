@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header();?>
 
 <div class="cover_area home_img">
   <div class="name">
@@ -64,45 +64,45 @@
       <h2 class="section_title" title="Works">Works</h2>
 
       <?php
-      $args = array(
-        'post_type' => 'works',
-        'post_per_page' => 3
-        );
-      $the_query = new WP_Query($args);
-      
-      if ($the_query->have_posts()) :
-        while ($the_query->have_posts()) : $the_query->the_post(); 
-      ?>
+$args = array(
+    'post_type' => 'works',
+    'post_per_page' => 3,
+);
+$the_query = new WP_Query($args);
 
-      <article class="bd">
-        <span class="draw"></span>
-        <div class="post_img fade">
-          <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
-        </div>
-        <div class="right fade">
-          <time datetime="<?php the_time('Y-m-j'); ?>"><?php the_time('Y.m.j'); ?></time>
-          <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-          <div class="tags fade">
-            <?php  //タグ(ターム)を表示 https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_get_object_termsを参考
-                  $order = array('orderby' => 'name', 'order' => 'ASC');
-                  $custom_post_tag_terms = wp_get_object_terms($post->ID, 'skill', $order);
-                  if(!empty($custom_post_tag_terms)){
-                    if(!is_wp_error( $custom_post_tag_terms )){
-                      foreach($custom_post_tag_terms as $term){
-                        echo '<a href="'.get_term_link($term->slug, 'skill').'">'.esc_html($term->name).'</a>';
-                      }
-                    }
-                  }
-                ?>
-          </div>
-        </div>
-      </article>
+if ($the_query->have_posts()):
+    while ($the_query->have_posts()): $the_query->the_post();
+        ?>
 
-      <?php 
-        endwhile;
-        wp_reset_postdata();
-      endif;
-      ?>
+		      <article class="bd">
+		        <span class="draw"></span>
+		        <div class="post_img fade">
+		          <a href="<?php the_permalink();?>"><?php the_post_thumbnail('thumbnail');?></a>
+		        </div>
+		        <div class="right fade">
+		          <time datetime="<?php the_time('Y-m-j');?>"><?php the_time('Y.m.j');?></time>
+		          <h1><a href="<?php the_permalink();?>"><?php the_title();?></a></h1>
+		          <div class="tags fade">
+		            <?php //タグ(ターム)を表示 https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_get_object_termsを参考
+        $order = array('orderby' => 'name', 'order' => 'ASC');
+        $custom_post_tag_terms = wp_get_object_terms($post->ID, 'skill', $order);
+        if (!empty($custom_post_tag_terms)) {
+            if (!is_wp_error($custom_post_tag_terms)) {
+                foreach ($custom_post_tag_terms as $term) {
+                    echo '<a href="' . get_term_link($term->slug, 'skill') . '">' . esc_html($term->name) . '</a>';
+                }
+            }
+        }
+        ?>
+		          </div>
+		        </div>
+		      </article>
+
+		      <?php
+    endwhile;
+    wp_reset_postdata();
+endif;
+?>
 
       <div class="to_list">
         <a class="to_list_btn" href="<?php echo get_post_type_archive_link('works'); ?>">実績一覧へ</a>
@@ -120,4 +120,4 @@
     </section>
     <!-- /contact -->
 
-<?php get_footer(); ?>
+<?php get_footer();?>
