@@ -15,5 +15,6 @@ nav .pc li a::after {
 
 .fade {
   transform: translate(0, 0);
+  visibility: visible;
   opacity: 1;
 }
