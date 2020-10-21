@@ -2,14 +2,14 @@ const { src, dest, watch, series } = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
-const cssmin = require('gulp-cssmin');
+const cleancss = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const mozjpeg = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
 
-function compileSass() {
+const compileSass = () => {
   return src('./src/css/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(
@@ -25,20 +25,20 @@ function compileSass() {
     )
     .pipe(sourcemaps.write('.'))
     .pipe(dest('./src/css'));
-}
+};
 
-function cssMin() {
+const cssMin = () => {
   return src('./src/css/style.css')
-    .pipe(cssmin())
+    .pipe(cleancss())
     .pipe(
       rename({
         suffix: '.min',
       }),
     )
     .pipe(dest('./assets/css'));
-}
+};
 
-function jsMin() {
+const jsMin = () => {
   return src('./src/js/*.js')
     .pipe(uglify())
     .pipe(
@@ -47,9 +47,9 @@ function jsMin() {
       }),
     )
     .pipe(dest('./assets/js'));
-}
+};
 
-function imageMin() {
+const imageMin = () => {
   return src('./src/images/*.{jpg,jpeg,png,gif,svg}')
     .pipe(
       imagemin([
@@ -60,7 +60,7 @@ function imageMin() {
       ]),
     )
     .pipe(dest('./assets/images/'));
-}
+};
 
 const watchSassFiles = () => watch('./src/css/scss/style.scss', compileSass);
 exports.default = watchSassFiles;
