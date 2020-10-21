@@ -1022,14 +1022,12 @@ footer {
 
 .fade {
   transform: translate(30px, 10px);
-  visibility: hidden;
   opacity: 0;
   overflow: hidden;
 }
 
 .fade_in {
   transform: translate(0, 0);
-  visibility: visible;
   opacity: 1;
   transition: 1s transform, 1s opacity;
 }

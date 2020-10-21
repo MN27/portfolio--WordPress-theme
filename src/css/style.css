@@ -994,7 +994,6 @@ footer small {
 .fade {
   -webkit-transform: translate(30px, 10px);
   transform: translate(30px, 10px);
-  visibility: hidden;
   opacity: 0;
   overflow: hidden;
 }
@@ -1002,7 +1001,6 @@ footer small {
 .fade_in {
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
-  visibility: visible;
   opacity: 1;
   -webkit-transition: 1s opacity, 1s -webkit-transform;
   transition: 1s opacity, 1s -webkit-transform;
