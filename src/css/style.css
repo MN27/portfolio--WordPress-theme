@@ -320,7 +320,7 @@ section {
   z-index: 3;
 }
 
-#about .about_wrap .logo img {
+#about .about_wrap .logo .img_wrap {
   position: absolute;
   width: 23px;
   height: auto;
@@ -328,6 +328,10 @@ section {
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
   transform: translateY(-50%) translateX(-50%);
+}
+
+#about .about_wrap .logo img {
+  vertical-align: middle;
 }
 
 #about .about_wrap .about_content {
@@ -822,7 +826,7 @@ footer small {
     width: 120px;
     height: 120px;
   }
-  #about .about_wrap .logo img {
+  #about .about_wrap .logo .img_wrap {
     width: 26px;
   }
   #about .about_wrap .about_content {

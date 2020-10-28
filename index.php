@@ -16,7 +16,11 @@
 	<section id="about">
 		<h2 class="section_title" title="About">About</h2>
 		<div class="about_wrap">
-		<div class="logo"><img src="<?php echo esc_html( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt=""></div>
+		<div class="logo">
+			<div class="img_wrap">
+				<img src="<?php echo esc_html( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="">
+			</div>
+		</div>
 		<div class="about_content bd">
 			<span class="draw"></span>
 			<p class="name fade">中村 允</p>
